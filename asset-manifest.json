@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Enalo-Appointment/static/css/main.dc1f117b.css",
+    "main.js": "/Enalo-Appointment/static/js/main.f2743f30.js",
+    "static/js/453.ca621f2f.chunk.js": "/Enalo-Appointment/static/js/453.ca621f2f.chunk.js",
+    "index.html": "/Enalo-Appointment/index.html",
+    "main.dc1f117b.css.map": "/Enalo-Appointment/static/css/main.dc1f117b.css.map",
+    "main.f2743f30.js.map": "/Enalo-Appointment/static/js/main.f2743f30.js.map",
+    "453.ca621f2f.chunk.js.map": "/Enalo-Appointment/static/js/453.ca621f2f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc1f117b.css",
+    "static/js/main.f2743f30.js"
+  ]
+}
