@@ -64,3 +64,34 @@
   left: 10px !important;
   color: #bdbdbd;
 }
+
+/* Mobile specific styles */
+@media (max-width: 768px) {
+  .form-container {
+    width: 90%; /* Wider form on mobile */
+    padding: 0 15px;
+  }
+
+  /* Stack inputs vertically */
+  .input-wrapper,
+  .dropdown-wrapper,
+  .message-wrapper {
+    flex-direction: column;
+  }
+
+  .input-wrapper > .ant-form-item,
+  .dropdown-wrapper > .ant-form-item {
+    margin-right: 0;
+    margin-bottom: 15px; /* Space between fields */
+  }
+
+  .contact-us-text {
+    font-size: 20px; /* Adjust font size for smaller screens */
+    text-align: center;
+  }
+
+  .submit-button {
+    margin-top: 20px;
+    height: 48px;
+  }
+}
