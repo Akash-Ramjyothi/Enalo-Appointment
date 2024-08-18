@@ -23,7 +23,12 @@ export default function DesktopForm() {
       <Title
         className="contact-us-text"
         level={5}
-        style={{ fontSize: "16px", fontWeight: "700", color: "#252B42" }}
+        style={{
+          fontSize: "16px",
+          fontWeight: "700",
+          color: "#252B42",
+          marginBottom: "0px",
+        }}
       >
         Contact Us
       </Title>
@@ -36,6 +41,7 @@ export default function DesktopForm() {
           lineHeight: "57px",
           marginTop: "0px",
           color: "#252B42",
+          marginBottom: "40px",
         }}
       >
         Make an Appointment
@@ -46,18 +52,23 @@ export default function DesktopForm() {
           <Form.Item
             label=""
             name="fullName"
-            style={{ marginRight: "10px" }}
+            style={{
+              marginRight: "20px",
+            }}
             rules={[{ required: true, message: "Please enter Full Name" }]}
           >
             <Input
+              className="custom-placeholder"
               style={{
                 height: "50px",
                 width: "255px",
-                fontWeight: "700",
-                fontSize: "16px",
-                color: "#737373",
+                fontWeight: "600",
+                fontSize: "14px",
+                backgroundColor: "#F9F9F9",
+                border: "1.5px solid #E6E6E6",
+                borderRadius: "5px",
               }}
-              placeholder="Full Name *"
+              placeholder="Full Name * "
             />
           </Form.Item>
           <Form.Item
@@ -69,26 +80,32 @@ export default function DesktopForm() {
             ]}
           >
             <Input
+              className="custom-placeholder"
               style={{
                 height: "50px",
                 width: "255px",
-                fontWeight: "700",
-                fontSize: "16px",
-                color: "#737373",
+                fontWeight: "600",
+                fontSize: "14px",
+                backgroundColor: "#F9F9F9",
+                border: "1.5px solid #E6E6E6",
+                borderRadius: "5px",
               }}
               placeholder="Email *"
             />
           </Form.Item>
         </div>
         <div className="dropdown-wrapper">
-          <Form.Item label="" name="dropdown1" style={{ marginRight: "10px" }}>
+          <Form.Item label="" name="dropdown1" style={{ marginRight: "20px" }}>
             <Select
+              className="custom-select"
               style={{
                 height: "50px",
                 width: "255px",
-                fontWeight: "700",
-                fontSize: "16px",
-                color: "#737373",
+                fontWeight: "600",
+                fontSize: "14px",
+                backgroundColor: "#F9F9F9",
+                border: "0px solid #E6E6E6",
+                borderRadius: "5px",
               }}
               placeholder="Please Select"
             >
@@ -96,14 +113,18 @@ export default function DesktopForm() {
               <Option value="option2">Option 2</Option>
             </Select>
           </Form.Item>
-          <Form.Item label="" name="dropdown2" style={{ marginRight: "10px" }}>
+          <Form.Item label="" name="dropdown2">
             <Select
+              className="custom-select-2"
               style={{
                 height: "50px",
                 width: "255px",
-                fontWeight: "700",
-                fontSize: "16px",
+                fontWeight: "600",
+                fontSize: "14px",
                 color: "#737373",
+                backgroundColor: "#F9F9F9",
+                border: "0px solid #E6E6E6",
+                borderRadius: "5px",
               }}
               placeholder="4:00 Available"
             >
@@ -130,7 +151,10 @@ export default function DesktopForm() {
                 width: "537px",
                 fontWeight: "600",
                 fontSize: "16px",
-                color: "#737373",
+                color: "#BDBDBD",
+                backgroundColor: "#F9F9F9",
+                paddingTop: "16px",
+                paddingLeft: "26px",
               }}
               placeholder="Message"
             />
@@ -144,6 +168,8 @@ export default function DesktopForm() {
               fontWeight: "600",
               fontSize: "16px",
               color: "white",
+              marginTop: "15px",
+              backgroundColor: "#23A6F0",
             }}
             type="primary"
             htmlType="submit"
