@@ -12,3 +12,5 @@ https://www.figma.com/design/rdWQQy5D99D2J9mUKH8Pk7/Test?node-id=0-1&t=D8e4Agi7x
 ## 🖼️ Design Screenshot:
 ![image](https://github.com/user-attachments/assets/5e73038a-c38f-466f-9c50-b77315f55a34)
 
+Logs:
+Added ant-design package.
