@@ -15,3 +15,4 @@ https://www.figma.com/design/rdWQQy5D99D2J9mUKH8Pk7/Test?node-id=0-1&t=D8e4Agi7x
 Logs:
 Added ant-design package.
 Fixed responsive UI.
+Improved form-validation.
