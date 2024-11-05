@@ -16,3 +16,4 @@ Logs:
 Added ant-design package.
 Fixed responsive UI.
 Improved form-validation.
+Added ant-d styles.
