@@ -23,3 +23,4 @@ Enabling user swipe-to-refresh layout.
 Added custom tooltip.
 Changed padding in text-input component.
 Transformed text after user breaks from typing.
+Fixing formated text values.
