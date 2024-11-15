@@ -26,3 +26,4 @@ Transformed text after user breaks from typing.
 Fixing formated text values.
 Updated packages.
 Added phone number input field.
+Updated text transformation.
