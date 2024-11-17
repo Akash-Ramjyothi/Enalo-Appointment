@@ -28,3 +28,4 @@ Updated packages.
 Added phone number input field.
 Updated text transformation.
 Added loggers in components.
+Fixed helper function.
