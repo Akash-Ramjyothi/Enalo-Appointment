@@ -32,3 +32,4 @@ Fixed helper function.
 Added asyng formatting function.
 Implemented new utility function.
 Fixing input processing error.
+Changing formating utility function control.
