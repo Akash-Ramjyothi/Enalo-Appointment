@@ -36,3 +36,4 @@ Changing formating utility function control.
 Added structured response modal.
 Developing validation utility function.
 Fixing % in validation function.
+Added reser button UI.
