@@ -38,3 +38,4 @@ Developing validation utility function.
 Fixing % in validation function.
 Added reser button UI.
 Fixing large message POST error.
+Fixing validation logic.
