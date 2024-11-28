@@ -39,3 +39,4 @@ Fixing % in validation function.
 Added reser button UI.
 Fixing large message POST error.
 Fixing validation logic.
+Modularizing and making validation function generic.
