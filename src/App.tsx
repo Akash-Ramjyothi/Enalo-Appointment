@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useRef } from "react";
 import "./App.css";
-import { Typography } from "antd";
-import { Input, Form, Select, Button } from "antd";
-import { FormInstance } from "antd";
-import DesktopForm from "./components/DesktopForm/DesktopForm";
-import MobileForm from "./components/MobileForm/MobileForm";
+import { Typography, Input, Form, Select, Button } from "antd";
+import type { FormInstance } from "antd/es/form";
+
 const { Title } = Typography;
 const { Option } = Select;
 const { TextArea } = Input;
@@ -12,171 +10,138 @@ const { TextArea } = Input;
 interface FormValues {
   fullName: string;
   email: string;
-  dropdown1: string;
-  dropdown2: string;
-  message: string;
+  dropdown1?: string;
+  dropdown2?: string;
+  message?: string;
 }
 
+const inputStyle: React.CSSProperties = {
+  height: "50px",
+  width: "255px",
+  fontWeight: 600,
+  fontSize: "14px",
+  backgroundColor: "#F9F9F9",
+  border: "1.5px solid #E6E6E6",
+  borderRadius: "5px",
+};
+
+const textAreaStyle: React.CSSProperties = {
+  height: "140px",
+  width: "537px",
+  fontWeight: 600,
+  fontSize: "16px",
+  backgroundColor: "#F9F9F9",
+  padding: "16px 26px",
+  border: "1px solid #BDBDBD",
+  borderRadius: "5px",
+};
+
+const buttonStyle: React.CSSProperties = {
+  height: "58px",
+  width: "218px",
+  fontWeight: 600,
+  fontSize: "16px",
+};
+
 function App() {
-  const formRef = React.createRef<FormInstance>();
+  const formRef = useRef<FormInstance<FormValues>>(null);
+
+  const handleFinish = (values: FormValues) => {
+    console.log("Form Submitted:", values);
+    formRef.current?.resetFields();
+  };
 
   return (
     <div className="App">
+      {/* Header Section */}
       <Title
-        className="contact-us-text"
         level={5}
-        style={{
-          fontSize: "16px",
-          fontWeight: "700",
-          color: "#252B42",
-          marginBottom: "0px",
-        }}
+        className="contact-us-text"
+        style={{ fontSize: 16, fontWeight: 700, marginBottom: 0 }}
       >
         Contact Us
       </Title>
+
       <Title
-        className="Make an Appointment"
         level={2}
         style={{
-          fontSize: "40px",
-          fontWeight: "700",
+          fontSize: 40,
+          fontWeight: 700,
           lineHeight: "57px",
-          marginTop: "0px",
-          color: "#252B42",
-          marginBottom: "40px",
+          marginTop: 0,
+          marginBottom: 40,
         }}
       >
         Make an Appointment
       </Title>
 
-      <Form ref={formRef} layout="vertical">
+      {/* Form Section */}
+      <Form<FormValues>
+        ref={formRef}
+        layout="vertical"
+        onFinish={handleFinish}
+        autoComplete="off"
+      >
+        {/* Name & Email */}
         <div className="input-wrapper">
           <Form.Item
-            label=""
             name="fullName"
-            style={{
-              marginRight: "20px",
-            }}
-            rules={[{ required: true, message: "Please enter Full Name" }]}
+            rules={[
+              { required: true, message: "Please enter Full Name" },
+              { min: 3, message: "Name must be at least 3 characters" },
+            ]}
           >
             <Input
-              className="custom-placeholder"
-              style={{
-                height: "50px",
-                width: "255px",
-                fontWeight: "600",
-                fontSize: "14px",
-                backgroundColor: "#F9F9F9",
-                border: "1.5px solid #E6E6E6",
-                borderRadius: "5px",
-              }}
-              placeholder="Full Name * "
+              style={{ ...inputStyle, marginRight: 20 }}
+              placeholder="Full Name *"
             />
           </Form.Item>
+
           <Form.Item
-            label=""
             name="email"
             rules={[
               { required: true, message: "Please enter Email ID" },
               { type: "email", message: "Please enter a valid email" },
             ]}
           >
-            <Input
-              className="custom-placeholder"
-              style={{
-                height: "50px",
-                width: "255px",
-                fontWeight: "600",
-                fontSize: "14px",
-                backgroundColor: "#F9F9F9",
-                border: "1.5px solid #E6E6E6",
-                borderRadius: "5px",
-              }}
-              placeholder="Email *"
-            />
+            <Input style={inputStyle} placeholder="Email *" />
           </Form.Item>
         </div>
+
+        {/* Dropdowns */}
         <div className="dropdown-wrapper">
-          <Form.Item label="" name="dropdown1" style={{ marginRight: "20px" }}>
+          <Form.Item name="dropdown1">
             <Select
-              className="custom-select"
-              style={{
-                height: "50px",
-                width: "255px",
-                fontWeight: "600",
-                fontSize: "14px",
-                backgroundColor: "#F9F9F9",
-                border: "0px solid #E6E6E6",
-                borderRadius: "5px",
-              }}
+              style={{ ...inputStyle, marginRight: 20 }}
               placeholder="Please Select"
             >
               <Option value="option1">Option 1</Option>
               <Option value="option2">Option 2</Option>
             </Select>
           </Form.Item>
-          <Form.Item label="" name="dropdown2">
-            <Select
-              className="custom-select-2"
-              style={{
-                height: "50px",
-                width: "255px",
-                fontWeight: "600",
-                fontSize: "14px",
-                color: "#737373",
-                backgroundColor: "#F9F9F9",
-                border: "0px solid #E6E6E6",
-                borderRadius: "5px",
-              }}
-              placeholder="4:00 Available"
-            >
-              <Option value="option1">5:00 Available</Option>
-              <Option value="option2">6:00 Available</Option>
+
+          <Form.Item name="dropdown2">
+            <Select style={inputStyle} placeholder="4:00 Available">
+              <Option value="5pm">5:00 Available</Option>
+              <Option value="6pm">6:00 Available</Option>
             </Select>
           </Form.Item>
         </div>
+
+        {/* Message */}
         <div className="message-wrapper">
-          <Form.Item
-            label=""
-            name="message"
-            style={{
-              height: "140px",
-              width: "537px",
-              fontWeight: "600",
-              fontSize: "16px",
-              color: "#737373",
-            }}
-          >
-            <TextArea
-              style={{
-                height: "140px",
-                width: "537px",
-                fontWeight: "600",
-                fontSize: "16px",
-                color: "#BDBDBD",
-                backgroundColor: "#F9F9F9",
-                paddingTop: "16px",
-                paddingLeft: "26px",
-                border: "1px solid #BDBDBD",
-                borderRadius: "5px",
-              }}
-              placeholder="Message"
-            />
+          <Form.Item name="message">
+            <TextArea style={textAreaStyle} placeholder="Message" />
           </Form.Item>
         </div>
+
+        {/* Submit */}
         <Form.Item>
           <Button
-            style={{
-              height: "58px",
-              width: "218px",
-              fontWeight: "600",
-              fontSize: "16px",
-              color: "white",
-              marginTop: "15px",
-              backgroundColor: "#23A6F0",
-            }}
             type="primary"
             htmlType="submit"
+            style={buttonStyle}
+            block
           >
             Book Appointment
           </Button>
