@@ -1,31 +1,43 @@
+/* =========================
+   Global Layout
+========================= */
+
 .App {
   text-align: center;
 }
+
+/* =========================
+   Typography
+========================= */
 
 .contact-us-text {
   line-height: 24px;
   font-weight: 700;
   font-size: 16px;
+  color: #1f1f1f;
 }
 
 .appointment-text {
-  font-size: 500px;
+  font-size: 32px; /* Fixed invalid 500px */
+  font-weight: 600;
+  margin-bottom: 24px;
 }
 
-.input-wrapper {
-  display: flex;
-  justify-content: center;
-}
+/* =========================
+   Layout Wrappers
+========================= */
 
-.dropdown-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
+.input-wrapper,
+.dropdown-wrapper,
 .message-wrapper {
   display: flex;
   justify-content: center;
+  gap: 16px;
 }
+
+/* =========================
+   Inputs & Placeholder
+========================= */
 
 .custom-placeholder::placeholder {
   color: #737373;
@@ -33,65 +45,115 @@
   padding-left: 12px;
 }
 
-.custom-select .ant-select-selector {
+/* =========================
+   Shared Select Styling
+========================= */
+
+.custom-select,
+.custom-select-2 {
+  width: 100%;
+}
+
+.custom-select .ant-select-selector,
+.custom-select-2 .ant-select-selector {
   background-color: #f9f9f9 !important;
-  height: 50px;
-  border-radius: 5px;
-}
-
-.custom-select .ant-select-selector {
+  height: 50px !important;
+  border-radius: 6px !important;
   padding-right: 120px !important;
-  color: #737373;
+  color: #737373 !important;
+  display: flex;
+  align-items: center;
 }
 
+/* Placeholder variations */
 .custom-select .ant-select-selection-placeholder {
   left: 10px !important;
-  color: #737373;
-}
-
-.custom-select-2 .ant-select-selector {
-  background-color: #f9f9f9 !important;
-  height: 50px;
-  border-radius: 5px;
-}
-
-.custom-select-2 .ant-select-selector {
-  padding-right: 120px !important;
-  color: #737373;
+  color: #737373 !important;
 }
 
 .custom-select-2 .ant-select-selection-placeholder {
   left: 10px !important;
-  color: #bdbdbd;
+  color: #bdbdbd !important;
 }
 
-/* Mobile specific styles */
+/* Focus state improvement */
+.custom-select .ant-select-focused .ant-select-selector,
+.custom-select-2 .ant-select-focused .ant-select-selector {
+  border-color: #1677ff !important;
+  box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1);
+}
+
+/* =========================
+   Form Container
+========================= */
+
+.form-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================
+   Button Styling
+========================= */
+
+.submit-button {
+  height: 50px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+/* =========================
+   Responsive Styles
+========================= */
+
+@media (max-width: 1024px) {
+  .form-container {
+    max-width: 95%;
+  }
+}
+
 @media (max-width: 768px) {
   .form-container {
-    width: 90%; /* Wider form on mobile */
+    width: 90%;
     padding: 0 15px;
   }
 
-  /* Stack inputs vertically */
+  /* Stack fields vertically */
   .input-wrapper,
   .dropdown-wrapper,
   .message-wrapper {
     flex-direction: column;
+    gap: 12px;
   }
 
   .input-wrapper > .ant-form-item,
   .dropdown-wrapper > .ant-form-item {
     margin-right: 0;
-    margin-bottom: 15px; /* Space between fields */
+    margin-bottom: 12px;
   }
 
   .contact-us-text {
-    font-size: 20px; /* Adjust font size for smaller screens */
+    font-size: 20px;
     text-align: center;
+  }
+
+  .appointment-text {
+    font-size: 24px;
   }
 
   .submit-button {
     margin-top: 20px;
     height: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-us-text {
+    font-size: 18px;
+  }
+
+  .appointment-text {
+    font-size: 20px;
   }
 }
