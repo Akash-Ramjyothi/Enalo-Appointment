@@ -1,64 +1,113 @@
+/* ============================= */
+/* Base Layout */
+/* ============================= */
+
 .App {
-    text-align: center;
+  text-align: center;
+  padding: 24px 16px;
+  background-color: #ffffff;
+}
+
+/* ============================= */
+/* Typography */
+/* ============================= */
+
+.contact-us-text {
+  line-height: 24px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #252b42;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.appointment-text {
+  font-size: 36px; /* fixed from 500px */
+  font-weight: 700;
+  line-height: 48px;
+  color: #252b42;
+  margin-bottom: 24px;
+}
+
+/* ============================= */
+/* Form Layout */
+/* ============================= */
+
+.input-wrapper,
+.dropdown-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.message-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+/* ============================= */
+/* Form Controls Enhancements */
+/* ============================= */
+
+.ant-input,
+.ant-select-selector,
+.ant-input-textarea {
+  border-radius: 8px !important;
+}
+
+.ant-input:focus,
+.ant-select-focused .ant-select-selector,
+.ant-input-textarea:focus {
+  border-color: #1677ff !important;
+  box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.2);
+}
+
+.ant-btn-primary {
+  height: 56px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+/* ============================= */
+/* Responsive Design */
+/* ============================= */
+
+@media (max-width: 768px) {
+  .appointment-text {
+    font-size: 28px;
+    line-height: 36px;
   }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
+
+  .input-wrapper,
+  .dropdown-wrapper {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
   }
-  
-  .App-link {
-    color: #61dafb;
+
+  .message-wrapper {
+    padding: 0 8px;
   }
-  
-  .contact-us-text{
-    line-height: 24px;
-    font-weight: 700;
-    font-size: 16px;
+}
+
+/* ============================= */
+/* Subtle Animation */
+/* ============================= */
+
+.fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
   }
-  
-  .appointment-text{
-    font-size: 500px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .input-wrapper{
-    display: flex;
-    justify-content: center;
-  }
-  
-  .dropdown-wrapper{
-    display: flex;
-    justify-content: center;
-  }
-  
-  .message-wrapper{
-    display: flex;
-    justify-content: center;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
+}
